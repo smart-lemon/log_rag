@@ -135,6 +135,7 @@ celerybeat.pid
 .raptorenv
 .venv
 code_parser_cache/
+raptorenv/
 env/
 venv/
 ENV/
