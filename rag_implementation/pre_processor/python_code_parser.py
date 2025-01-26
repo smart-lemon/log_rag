@@ -41,7 +41,7 @@ class CodeParser:
         self._install_parsers()
 
     def _install_parsers(self):
-        print("_install_parsers()")
+        # print("_install_parsers()")
         logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
         try:
@@ -409,7 +409,7 @@ class CodeParser:
 
         Returns a list of tuples: (caller_function, called_function, source_file).
         """
-        print("File extension " + file_extension)
+        # print("File extension " + file_extension)
         language_name = self.language_extension_map.get(file_extension)
         if language_name is None:
             raise ValueError(f"Unsupported file type: {file_extension}")

@@ -4,6 +4,7 @@ from pre_processor.repo_chunker import *
 from raptor_retriever import *
 from graph_retriever import *
 from longcontext_retriever import *
+from colorama import Fore, Style
 
 # ====================== Set before the test ========================
 
@@ -32,23 +33,6 @@ def execute(method, project, project_path, project_name, project_description):
         print(Fore.YELLOW + Style.BRIGHT + "Executing project: " + project + " - " + project_description
               + Fore.YELLOW + "Using Long context" + Style.RESET_ALL)
         execute_project_feed_logs_longcontext(project, project_path, project_name, project_description)
-
-
-def sample_library_code_test(method):
-    project = "the_library"
-    project_path = "/Users/work/Documents/Code/work/rag_dogfood/library_code/code"
-    project_name = "The Library"
-    project_description = "This is an implementation of a monolithic Book Library application"
-
-    execute(method, project, project_path, project_name, project_description)
-
-def sample_parkinglot_code_test(method):
-    project = "the_parking_lot"
-    project_path = "/Users/work/Documents/Code/work/rag_dogfood/parkinglot_code/src"
-    project_name = "The Parking Lot"
-    project_description = "This is an implementation of a monolithic Parking Lot application"
-
-    execute(method, project, project_path, project_name, project_description)
 
 def print_config():
 
@@ -118,6 +102,8 @@ if __name__ == "__main__":
     # Troubleshooting
     # print_config(config)
 
+    print(Fore.GREEN + "Retrieval augmented generation for Logs - " + Style.BRIGHT +
+          " Version 1.0 " +  Style.DIM + " Author: SS" +  Style.RESET_ALL)
     root_directory = config.get('projects', 'project_directory')
 
     project_infos = find_and_parse_info_ini(root_directory)

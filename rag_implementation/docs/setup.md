@@ -22,7 +22,6 @@ The raptor impementation requirement is in raptor-requirement.in
 pip3 install -r requirements.txt 
 pip3 install -e .
 ```
-
 To save the requirements use 
 ```commandLine 
 pip3 freeze > requirements.txt
@@ -109,4 +108,4 @@ Create a database. Hit start and setup config.ini
 main.py | tee logs/the_script.log
 
 ### important note 
-Tree sitter version HAS to be 0.21 
+Tree sitter version HAS to be 0.21.3 

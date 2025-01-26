@@ -258,7 +258,14 @@ def execute_project_feed_logs_to_graphrag(project, project_path, project_name, p
         # Get response from Gemini Pro
         print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)
         pprint_color(final_prompt)
-        response = query_llm(final_prompt)
+
+       ''' import tiktoken
+        for encoding_name in ["cl100k_base"]:
+            encoding = tiktoken.get_encoding(encoding_name)
+            token_integers = encoding.encode(final_prompt)
+            num_tokens = len(token_integers)
+            print("Tokens use are " + str(num_tokens))
+        response = query_llm(final_prompt)'''
 
         render_to_pdf(location=str(Path(project_path).parents[0]) + str(os.sep) + "scripts", content=response,
                       filename=os.path.basename(file).split(".")[0], prefix = "graphrag", logs=logs)

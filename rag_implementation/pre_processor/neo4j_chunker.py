@@ -48,7 +48,6 @@ class CodeGraphTransformer:
             previous_chunk = None
 
             for chunk_number, chunk in code_chunks.items():
-                print(Fore.YELLOW + "transform_code_to_graph()" + Style.RESET_ALL)
 
                 # Troubleshooting - print chunks
                 # pprint.pprint(code_chunks)

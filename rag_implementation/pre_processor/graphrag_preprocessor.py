@@ -20,10 +20,9 @@ def add_code_chunks_to_graph_db(project, project_path, project_name, project_des
         file_extension='py'
     )
 
-    # chunks = Neo4jChunker(file_extension='py').create_chunks(project, project_path, project_name, project_description)
-    chunks = code_into_chunks(code_dir=project_path, project=project_name, description=project_description)
-
-    #chunks = chunker.chunk(content, token_limit=1000, base_folder=base_dir, file_path=full_path)
+    chunks = Neo4jChunker(file_extension='py').create_chunks(project, project_path, project_name, project_description)
+    # chunks = code_into_chunks(code_dir=project_path, project=project_name, description=project_description)
+    # chunks = chunker.chunk(content, token_limit=1000, base_folder=base_dir, file_path=full_path)
     # code_chunk = CodeChunk(file_name=full_path, project_name=self.project_name, chunks=chunks)
 
     # Assuming you have code chunks from CodeChunker

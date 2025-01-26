@@ -43,6 +43,7 @@ def execute_project_feed_logs_longcontext(project, project_path, project_name, p
 
         # Format prompt for LLM
         final_prompt = f"You are an expert developer analyzing code and logs to troubleshoot errors.\n\nContext:\n{context}\n\nQuestion:\n{query}"
+
         if logs:
             final_prompt += f"\nLogs:\n{logs}"
 
