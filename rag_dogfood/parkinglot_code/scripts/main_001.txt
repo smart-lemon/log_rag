@@ -1,0 +1,1 @@
+Here are logs of a code base, analyse them and make a plantuml sequence diagram of the code flow. If any crashes are seen give the root cause analysis 

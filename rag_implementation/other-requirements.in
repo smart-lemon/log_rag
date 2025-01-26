@@ -1,0 +1,17 @@
+build==1.2.2.post1
+certifi==2024.12.14
+charset-normalizer==3.4.1
+click==8.1.8
+idna==3.10
+packaging==24.2
+pip-tools==7.4.1
+pyproject_hooks==1.2.0
+# Editable Git install with no remote (rag_implementation==1.0)
+-e /Users/work/Documents/Code/work/rag_implementation
+regex==2024.11.6
+requests==2.32.3
+setuptools==75.8.0
+tiktoken==0.8.0
+tree-sitter==0.24.0
+urllib3==2.3.0
+wheel==0.37.1

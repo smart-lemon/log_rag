@@ -1,0 +1,26 @@
+[33m[1mOption 1[0m
+Project: the_library
+Project Name: The Library
+Project Description: This is an implementation of a monolithic Book Library application
+[33m[1m----------------------------------------[0m
+[33m[1mOption 2[0m
+Project: the_parking_lot
+Project Name: The Parking Lot
+Project Description: This is an implementation of a monolithic Parking Lot application
+[33m[1m----------------------------------------[0m
+[33m[1mChoose one project (enter the option number): [0m[32m[1mSelected Project:[0m
+Project: the_library
+Project Name: The Library
+Project Description: This is an implementation of a monolithic Book Library application
+Code location: /Users/work/Documents/Code/work/rag_dogfood/library_code/code
+[33m[1mChoose one RAG methods: 1. Raptor, 2. GraphRAG, 3. Long context [0m[33m[1mExecuting project: the_library - This is an implementation of a monolithic Book Library application[33mUsing Graph RAG[0m
+[91m[2mcode_into_chunks() [0m
+[31m ========== Printing the_library project ==========  [0m
+[34m[2mcode_into_chunks() Processing: /Users/work/Documents/Code/work/rag_dogfood/library_code/code/__init__.py [0m
+[34m[2m /Users/work/Documents/Code/work/rag_dogfood/library_code/code/__init__.py[0m
+[34m[2mcode_into_chunks() Processing: /Users/work/Documents/Code/work/rag_dogfood/library_code/code/utilities/__init__.py [0m
+[34m[2m /Users/work/Documents/Code/work/rag_dogfood/library_code/code/utilities/__init__.py[0m
+[34m[2mcode_into_chunks() Processing: /Users/work/Documents/Code/work/rag_dogfood/library_code/code/utilities/utils.py [0m
+[34m[2m /Users/work/Documents/Code/work/rag_dogfood/library_code/code/utilities/utils.py[0m
+py
+python
