@@ -5,6 +5,7 @@ from llm.claude_adapter import *
 from llm.vertex_adapter import *
 from llm.llama_adapter import *
 from llm.mistral_adapter import *
+from colorama import Fore, Style
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -41,3 +42,12 @@ def query_llm(txt):
     else: # Corner case only - no response
         response = "No response - please check LLM configuration"
     return response
+
+def count_tokens(prompt):
+    import tiktoken
+    for encoding_name in ["cl100k_base"]:
+        encoding = tiktoken.get_encoding(encoding_name)
+        token_integers = encoding.encode(final_prompt)
+        num_tokens = len(token_integers)
+        print(Fore.CYAN + Style.DIM "Approximate number of tokens used are " + str(num_tokens) + Style.RESET_ALL)
+

@@ -265,13 +265,8 @@ def gmm_clustering_raptor_retrieval(project, project_path, project_name, project
     if logs:
         final_prompt += f"\nLogs:\n{logs}"
 
-'''import tiktoken
-    for encoding_name in ["cl100k_base"]:
-        encoding = tiktoken.get_encoding(encoding_name)
-        token_integers = encoding.encode(final_prompt)
-        num_tokens = len(token_integers)
-        print("Tokens use are " + str(num_tokens))
-'''
+    count_tokens(final_prompt)
+
     # Get response from Gemini Pro
     print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)
     pprint_color(final_prompt)

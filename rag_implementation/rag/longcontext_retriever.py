@@ -1,11 +1,12 @@
 from utility.utils import *
-from pre_processor.graphrag_preprocessor import add_code_chunks_to_graph_db, clear_neo4j_database
 import re
 from pathlib import Path
 from typing import List, Dict, Any
 import pprint
 from llm.vertex_adapter import *
 from pre_processor.longcontext_preprocessor import *
+from pre_processor.graphrag_preprocessor import add_code_chunks_to_graph_db, clear_neo4j_database
+
 
 def execute_project_feed_logs_longcontext(project, project_path, project_name, project_description):
     invocation_dir = str(Path(project_path).parents[0])
@@ -46,6 +47,8 @@ def execute_project_feed_logs_longcontext(project, project_path, project_name, p
 
         if logs:
             final_prompt += f"\nLogs:\n{logs}"
+
+        count_tokens(final_prompt)
 
         # Get response from Gemini Pro
         print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)

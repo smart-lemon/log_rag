@@ -251,7 +251,7 @@ def execute_project_feed_logs_to_graphrag(project, project_path, project_name, p
             query = "Here are logs of the project, analyse them and make a plantuml sequence diagram of the code flow"
 
         # Format prompt for LLM
-        final_prompt = f"You are an expert developer analyzing code and logs to troubleshoot errors.\n\nContext:\n{context}\n\nQuestion:\n{query}"
+        final_prompt = f"You are an expert developer analyzing code and logs to troubleshoot errors.\n\n Context:\n{context}\n\n Question:\n{query}"
         if logs:
             final_prompt += f"\nLogs:\n{logs}"
 
@@ -259,13 +259,8 @@ def execute_project_feed_logs_to_graphrag(project, project_path, project_name, p
         print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)
         pprint_color(final_prompt)
 
-       ''' import tiktoken
-        for encoding_name in ["cl100k_base"]:
-            encoding = tiktoken.get_encoding(encoding_name)
-            token_integers = encoding.encode(final_prompt)
-            num_tokens = len(token_integers)
-            print("Tokens use are " + str(num_tokens))
-        response = query_llm(final_prompt)'''
+        count_tokens(final_prompt)
+        response = query_llm(final_prompt)
 
         render_to_pdf(location=str(Path(project_path).parents[0]) + str(os.sep) + "scripts", content=response,
                       filename=os.path.basename(file).split(".")[0], prefix = "graphrag", logs=logs)
