@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from pre_processor.repo_chunker import *
 from rag.gmm import perform_clustering
-from llm.common import *
+import configparser
 
 #======================== Set before the test ==============================
 
@@ -20,7 +20,7 @@ summarizing_prompt_template = """Here are snippets of code chunks along with the
 def embed_code(chunks):
     results = None
 
-    if llm == 'vertex':
+    if llm_config == 'vertex':
         results = embed_text(chunks)
 
     code_embedding_np = np.array(results)
@@ -131,15 +131,12 @@ def embed_cluster_summarize_code_chunks(
         # Apply the prompt template
         prompt = summarizing_prompt_template.format(context=formatted_txt)
 
+        # Use LLM for summarization
+        response = query_llm(prompt)
 
-        # Use Gemini Pro for summarization
-        if llm == "vertex":
-            response = query_llm(prompt)
-
-            # Trouble shooting - prints the respose of the summary
-            print(Fore.YELLOW + " Summary of prompt\n" + prompt + " Summary\n " + response)
+        # Trouble shooting - prints the respose of the summary
+        print(Fore.YELLOW + " Summary of prompt\n" + prompt + " Summary\n " + response)
         summaries.append(response)
-
 
 
     # Create a DataFrame to store summaries with their corresponding cluster and level

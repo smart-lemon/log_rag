@@ -10,7 +10,7 @@ from colorama import Fore, Style
 
 config = configparser.ConfigParser()
 config.read('config.ini')
-llm = config.get('llm_in_use', 'llm')
+llm_config = config.get('llm_in_use', 'llm')
 embedding_name = config.get('llm_in_use', 'embedding')
 
 

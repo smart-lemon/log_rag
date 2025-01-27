@@ -1,5 +1,4 @@
 from utility.utils import *
-from llm.common import *
 import re
 from pathlib import Path
 from typing import List, Dict, Any
@@ -262,8 +261,7 @@ def execute_project_feed_logs_to_graphrag(project, project_path, project_name, p
         pprint_color(final_prompt)
 
         response = query_llm(final_prompt)
-
-        count_llm_tokens(final_prompt)
+        eval_llm_token_count(final_prompt)
 
         render_to_pdf(location=str(Path(project_path).parents[0]) + str(os.sep) + "scripts", content=response,
                       filename=os.path.basename(file).split(".")[0], prefix = "graphrag", logs=logs)

@@ -7,7 +7,6 @@ from utility.utils import *
 from pathlib import Path
 import pprint
 from pre_processor.repo_chunker import *
-from llm.common import *
 
 def reformat_hints(hints):
     reformatted = {
@@ -265,6 +264,7 @@ def gmm_clustering_raptor_retrieval(project, project_path, project_name, project
     if logs:
         final_prompt += f"\nLogs:\n{logs}"
 
+    from llm.common import query_llm, eval_llm_token_count
 
     # Get response from Gemini Pro
     print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)
@@ -273,7 +273,7 @@ def gmm_clustering_raptor_retrieval(project, project_path, project_name, project
 
     print(Fore.GREEN + Style.DIM + "Final answer: " + Style.RESET_ALL)
     print(Fore.GREEN + Style.BRIGHT + response+ Style.RESET_ALL)
-    count_llm_tokens(final_prompt)
+    eval_llm_token_count(final_prompt)
 
     return response
 

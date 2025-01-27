@@ -18,7 +18,7 @@ from pathlib import Path
 #====================== Set before the test ========================
 config = configparser.ConfigParser()
 config.read('config.ini')
-llm = config.get('llm_in_use', 'llm')
+llm_config = config.get('llm_in_use', 'llm')
 def run_script_and_capture_logs(script_path, file_name):
     """
     Runs the script as a subprocess and captures its logs.

@@ -19,12 +19,14 @@ source raptorenv/bin/activate
 ```
 The raptor impementation requirement is in raptor-requirement.in
 ```commandline
+python -m ensurepip --upgrade or python -m pip install --upgrade pip
+python -m pip install --upgrade setuptools
 pip3 install -r requirements.txt 
 pip3 install -e .
 ```
 To save the requirements use 
 ```commandLine 
-pip3 freeze > requirements.txt
+pip3 freeze > raptor-requirement.in
 ```
 
 ## Install model 

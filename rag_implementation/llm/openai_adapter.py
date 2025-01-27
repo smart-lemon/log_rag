@@ -10,7 +10,7 @@ import openai
 
 config = configparser.ConfigParser()
 config.read('config.ini')
-llm = config.get('llm_in_use', 'llm')
+llm_config = config.get('llm_in_use', 'llm')
 
 # Set the embedding in config.ini e.g - "text-embedding-ada-002"
 embedding_name = config.get('llm_in_use', 'embedding')
