@@ -265,7 +265,6 @@ def gmm_clustering_raptor_retrieval(project, project_path, project_name, project
     if logs:
         final_prompt += f"\nLogs:\n{logs}"
 
-    count_tokens(final_prompt)
 
     # Get response from Gemini Pro
     print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)
@@ -274,6 +273,7 @@ def gmm_clustering_raptor_retrieval(project, project_path, project_name, project
 
     print(Fore.GREEN + Style.DIM + "Final answer: " + Style.RESET_ALL)
     print(Fore.GREEN + Style.BRIGHT + response+ Style.RESET_ALL)
+    count_llm_tokens(final_prompt)
 
     return response
 

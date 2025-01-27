@@ -1,10 +1,12 @@
 from utility.utils import *
-from pre_processor.graphrag_preprocessor import add_code_chunks_to_graph_db, clear_neo4j_database
+from llm.common import *
 import re
 from pathlib import Path
 from typing import List, Dict, Any
 import pprint
 from neo4j import GraphDatabase
+from pre_processor.graphrag_preprocessor import add_code_chunks_to_graph_db, clear_neo4j_database
+
 
 # Load API keys from configuration file
 config = configparser.ConfigParser()
@@ -259,8 +261,9 @@ def execute_project_feed_logs_to_graphrag(project, project_path, project_name, p
         print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)
         pprint_color(final_prompt)
 
-        count_tokens(final_prompt)
         response = query_llm(final_prompt)
+
+        count_llm_tokens(final_prompt)
 
         render_to_pdf(location=str(Path(project_path).parents[0]) + str(os.sep) + "scripts", content=response,
                       filename=os.path.basename(file).split(".")[0], prefix = "graphrag", logs=logs)

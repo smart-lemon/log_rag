@@ -96,6 +96,9 @@ def select_project(project_infos):
         return None
 
 if __name__ == "__main__":
+    from llm.common import *
+    query_llm("Hello world")
+
     config = configparser.ConfigParser()
     config.read('config.ini')
 

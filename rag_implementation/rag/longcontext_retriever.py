@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import List, Dict, Any
 import pprint
 from llm.vertex_adapter import *
+from llm.common import *
 from pre_processor.longcontext_preprocessor import *
 from pre_processor.graphrag_preprocessor import add_code_chunks_to_graph_db, clear_neo4j_database
 
@@ -48,14 +49,13 @@ def execute_project_feed_logs_longcontext(project, project_path, project_name, p
         if logs:
             final_prompt += f"\nLogs:\n{logs}"
 
-        count_tokens(final_prompt)
-
-        # Get response from Gemini Pro
+       # Get response from Gemini Pro
         print(Fore.CYAN + Style.DIM + "Prompt" + Style.RESET_ALL)
         pprint_color(final_prompt)
         response = query_llm(final_prompt)
-
         print(response)
+
+        count_llm_tokens(final_prompt)
 
         render_to_pdf(location=str(Path(project_path).parents[0]) + str(os.sep) + "scripts", content=response,
                       filename=os.path.basename(file).split(".")[0], prefix = "long_context", logs=logs)

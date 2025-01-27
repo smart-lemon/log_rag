@@ -11,6 +11,14 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 llm = config.get('llm_in_use', 'llm')
 
+def count_llm_tokens(prompt):
+    import tiktoken
+    for encoding_name in ["cl100k_base"]:
+        encoding = tiktoken.get_encoding(encoding_name)
+        token_integers = encoding.encode(prompt)
+        num_tokens = len(token_integers)
+        print(Fore.CYAN + Style.DIM +  "Approximate number of tokens used are " + str(num_tokens) + Style.RESET_ALL)git
+
 def embed_text(txt):
     results = None
     if llm == 'vertex':
@@ -28,6 +36,7 @@ def embed_text(txt):
     return results
 
 def query_llm(txt):
+    print("Querying LLM " + llm)
     response = ""
     if llm == 'vertex':
         response = query_vertex_web_api(txt)
@@ -43,11 +52,6 @@ def query_llm(txt):
         response = "No response - please check LLM configuration"
     return response
 
-def count_tokens(prompt):
-    import tiktoken
-    for encoding_name in ["cl100k_base"]:
-        encoding = tiktoken.get_encoding(encoding_name)
-        token_integers = encoding.encode(final_prompt)
-        num_tokens = len(token_integers)
-        print(Fore.CYAN + Style.DIM "Approximate number of tokens used are " + str(num_tokens) + Style.RESET_ALL)
 
+if __name__ == "__main__":
+    count_llm_tokens("Hello world")
